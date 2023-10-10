@@ -98,6 +98,30 @@ namespace first_app
             }
             generated_password_text_block.Text = result_pass;
         }
+
+        private void random_login_chars_click(object sender, RoutedEventArgs e)
+        {
+            if (login_user_text_block.Text != string.Empty)
+            {
+                string user_login = login_user_text_block.Text;
+                Random random = new Random();
+
+                char[] ar = user_login.ToCharArray();
+                int n = ar.Length;
+                while(n > 1)
+                {
+                    n--;
+                    int k = random.Next(n + 1);
+                    var x = ar[k];
+                    ar[k] = ar[n];
+                    ar[n] = x;
+                }
+                string result = new string(ar);
+                random_login_text_block.Text = result;
+            }
+            else
+                MessageBox.Show("Fill input!");
+        }
     }
     
 }
