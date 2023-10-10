@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="Revision - FirstApp" Height="400" Width="600">
     <Grid>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
@@ -15,51 +14,43 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
-            <RowDefinition Height="2*"/>
+            <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel>
+        <StackPanel Orientation="Vertical" Margin="10 5 0 0">
 
             <StackPanel Orientation="Horizontal">
+                <ComboBox 
+                    x:Name="combo_box"
+                    ItemsSource="{Binding comboBoxItems}"
+                    SelectedItem="{Binding selectedCbItem}"
+                    />
 
-                <ComboBox x:Name="combo_box" Margin="10"
-                          ItemsSource="{Binding comboBoxItems}"
-                          SelectedItem="{Binding selectedCbItem}"/>
-
-
-                <StackPanel 
-                    Orientation="Vertical" 
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-                    
-                    <TextBlock Text="Add Own Element: " TextAlignment="Center"/>
-                    <TextBox 
-                        x:Name="text_box_combox_item"
-                        Width="110"/>
-                </StackPanel>
+                <TextBox
+                    x:Name="new_item_text_box"
+                    Width="110"
+                    Margin="10 0 10 0" />
 
                 <Button
-                    x:Name="add_to_combobox"
-                    Content="ADD"
-                    Margin="7 10 5 10" Click="add_to_combobox_Click"/>
+                    x:Name="add_new_cb_item"
+                    Content="ADD" Click="add_new_cb_item_Click"/>
 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-
+            <StackPanel Orientation="Horizontal" Margin="40 10 0 0">
+                
                 <TextBlock
-                    x:Name="seleced_item_text_block"
+                    x:Name="selected_item_text_block"
                     Text="Selected Item"
-                    Margin="10 5 0 0"/>
+                    Margin="0 0 45 0"/>
 
                 <Button
-                    x:Name="select_from_combo"
-                    Content="SELECT"
-                    Margin="10 5 0 0" Click="select_from_combo_Click"/>
-
+                    x:Name="select_cb_item"
+                    Content="SELECT" Click="select_cb_item_Click"
+                />
             </StackPanel>
-            
+
         </StackPanel>
         
     </Grid>

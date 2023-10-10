@@ -21,8 +21,8 @@ namespace first_app
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        public ObservableCollection<ComboBoxItem> comboBoxItems { get; set; }
+    { 
+        public ObservableCollection<ComboBoxItem> comboBoxItems {  get; set; }
         public ComboBoxItem selectedCbItem { get; set; }
         public MainWindow()
         {
@@ -30,22 +30,31 @@ namespace first_app
             DataContext= this;
 
             comboBoxItems = new ObservableCollection<ComboBoxItem>();
-            var cbItem = new ComboBoxItem { Content = "<-- SELECT -->"};
-            selectedCbItem = cbItem;
-            comboBoxItems.Add(cbItem);
+            var CbItem = new ComboBoxItem { Content = "SELECT VALUE" };
+            selectedCbItem = CbItem;
+            comboBoxItems.Add(CbItem);
 
-            comboBoxItems.Add(new ComboBoxItem { Content = "Option 1"});
-            comboBoxItems.Add(new ComboBoxItem { Content = "Option 2"});
+            comboBoxItems.Add(new ComboBoxItem { Content = "OPTION 1" });
+            comboBoxItems.Add(new ComboBoxItem { Content = "OPTION 2" });
+            comboBoxItems.Add(new ComboBoxItem { Content = "OPTION 3" });
         }
 
-        private void add_to_combobox_Click(object sender, RoutedEventArgs e)
+        private void select_cb_item_Click(object sender, RoutedEventArgs e)
         {
-            comboBoxItems.Add(new ComboBoxItem { Content = text_box_combox_item.Text.ToString() });
+            string selected_value = selectedCbItem.Content.ToString();
+            selected_item_text_block.Text = selected_value;
         }
 
-        private void select_from_combo_Click(object sender, RoutedEventArgs e)
+        private void add_new_cb_item_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(selectedCbItem.Content.ToString());
+            if (new_item_text_box.Text != String.Empty)
+            {
+                comboBoxItems.Add(new ComboBoxItem { Content = new_item_text_box.Text.ToString() });
+                new_item_text_box.Clear();
+            }
+            else
+                MessageBox.Show("Fill input!");
         }
     }
+    
 }
