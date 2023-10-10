@@ -5,8 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:first_app"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Revision - FirstApp" Height="400" Width="600">
     <Grid>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+
+                <ComboBox x:Name="combo_box" Margin="10"
+                          ItemsSource="{Binding comboBoxItems}"
+                          SelectedItem="{Binding selectedCbItem}"/>
+
+
+                <StackPanel 
+                    Orientation="Vertical" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    
+                    <TextBlock Text="Add Own Element: " TextAlignment="Center"/>
+                    <TextBox 
+                        x:Name="text_box_combox_item"
+                        Width="110"/>
+                </StackPanel>
+
+                <Button
+                    x:Name="add_to_combobox"
+                    Content="ADD"
+                    Margin="7 10 5 10" Click="add_to_combobox_Click"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock
+                    x:Name="seleced_item_text_block"
+                    Text="Selected Item"
+                    Margin="10 5 0 0"/>
+
+                <Button
+                    x:Name="select_from_combo"
+                    Content="SELECT"
+                    Margin="10 5 0 0" Click="select_from_combo_Click"/>
+
+            </StackPanel>
+            
+        </StackPanel>
+        
     </Grid>
 </Window>
