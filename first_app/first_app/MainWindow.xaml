@@ -104,6 +104,49 @@
 
         </StackPanel>
 
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+
+            <TextBlock 
+                Text="Select a gender:"
+                FontWeight="Bold"
+                Margin="10 5 0 0"/>
+
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel Orientation="Vertical" Margin="10 0 0 0">
+
+                    <RadioButton
+                        x:Name="male"
+                        Content="Male"
+                        GroupName="radio_buttons"
+                        Margin="10 5 0 0" />
+
+                    <RadioButton
+                        x:Name="female"
+                        Content="Female"
+                        GroupName="radio_buttons"
+                        IsChecked="True"
+                        Margin="10 5 0 0" />
+
+                </StackPanel>
+
+                <Image
+                    x:Name="image_source"
+                    Source="../../../images/female.png"
+                    Width="60"
+                    Margin="10 0 0 0" />
+
+            </StackPanel>
+
+            <Button
+                Click="select_gender_click"
+                Content="SELECT"
+                VerticalAlignment="Center"
+                Width="70"
+                Margin="0 5 20 0" />
+
+        </StackPanel>
+
     </Grid>
     
 </Window>

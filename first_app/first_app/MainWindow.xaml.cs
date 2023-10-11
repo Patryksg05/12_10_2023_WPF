@@ -120,7 +120,20 @@ namespace first_app
                 random_login_text_block.Text = result;
             }
             else
-                MessageBox.Show("Fill input!");
+                MessageBox.Show("Fill input!");   
+        }
+
+        private void select_gender_click(object sender, RoutedEventArgs e)
+        {
+            if(male.IsChecked == true)
+            {
+                image_source.Source = new BitmapImage(new Uri("../../../images/men_image.png", UriKind.Relative));
+                // textblock.FontWeight = Windows.UI.Text.FontWeights.Bold;
+            }
+            if(female.IsChecked == true)
+            {
+                image_source.Source = new BitmapImage(new Uri("../../../images/female.png", UriKind.Relative));
+            }
         }
     }
     
