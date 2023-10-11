@@ -57,6 +57,36 @@ namespace radio_combobox
             string content = selectedComboBoxItem.Content.ToString(); // get a content of selected element
             int index = comboBoxItems.IndexOf(selectedComboBoxItem); // get an index of selected element
             selected_cb_item_text_block.Text = index.ToString() + " " + content;
+
+            if(index == 2 && selectedComboBoxItem.Content.ToString().Equals("Option2"))
+                if_sth_selected_text_block.Visibility= Visibility.Visible;
+            else
+                if_sth_selected_text_block.Visibility = Visibility.Hidden;
+        }
+
+        private void add_new_radio_click(object sender, RoutedEventArgs e)
+        {
+            if(new_radiobox_text_box.Text != string.Empty)
+            {
+                RadioButton radioButton = new RadioButton
+                {
+                    Content = new_radiobox_text_box.Text,
+                    GroupName = "radio_btns"
+                };
+                radio_buttons_stack_panel.Children.Add(radioButton);
+            }
+        }
+
+        private void display_radio_click(object sender, RoutedEventArgs e)
+        {
+            RadioButton radioButton = radio_buttons_stack_panel.Children.OfType<RadioButton>().FirstOrDefault(r=>r.IsChecked == true);
+            if(radioButton != null)
+            {
+                int index = radio_buttons_stack_panel.Children.IndexOf(radioButton); 
+                string content = radioButton.Content.ToString();
+                selected_radio_btn_value_text_block.Text = index.ToString() + " " + content;
+                selected_radio_btn_value_text_block.Visibility = Visibility.Visible;
+            }
         }
     }
 }

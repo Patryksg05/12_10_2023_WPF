@@ -61,12 +61,73 @@
                         VerticalAlignment="Center"
                         FontWeight="Bold"
                         />
+                    
+                </StackPanel>
+
+                <TextBlock
+                    x:Name="if_sth_selected_text_block"
+                    Text="If option2 is selected display"
+                    TextAlignment="Center"
+                    Visibility="Hidden"
+                    />
+
+            </StackPanel>
+            
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+            <StackPanel Orientation="Vertical" Margin="10 5 0 0">
+
+                <StackPanel 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+                    <TextBox
+                        x:Name="new_radiobox_text_box"
+                        Width="130"/>
+
+                    <Button
+                        Click="add_new_radio_click"
+                        Content="ADD"
+                        Width="50"
+                        />
+
+                    <Button
+                        Click="display_radio_click"
+                        Content="DISPLAY"
+                        Width="50"
+                        />
 
                 </StackPanel>
 
-                
+            </StackPanel>
+
+            <TextBlock
+                x:Name="selected_radio_btn_value_text_block"
+                Text="Selected value from radio"
+                TextAlignment="Center"
+                Visibility="Hidden"
+                FontWeight="Bold"
+                />
+
+            <StackPanel 
+                x:Name="radio_buttons_stack_panel"
+                Orientation="Vertical"
+                Margin="0 10 0 0"
+                HorizontalAlignment="Center">
+
+                <RadioButton
+                    x:Name="radio_btn1"
+                    GroupName="radio_btns"
+                    Content="Option1" />
+
+                <RadioButton
+                    x:Name="radio_btn2"
+                    GroupName="radio_btns"
+                    Content="Option2" />
 
             </StackPanel>
+            
         </StackPanel>
         
     </Grid>
