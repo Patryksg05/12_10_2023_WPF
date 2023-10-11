@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Patryksg05\\Desktop\\12_10_WPF\\radio_combobox\\radio_combobox\\radio_combobox.csproj": {}
+    "C:\\Users\\Patryksg05\\OneDrive\\Pulpit\\12_10_2023_WPF\\radio_combobox\\radio_combobox\\radio_combobox.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Patryksg05\\Desktop\\12_10_WPF\\radio_combobox\\radio_combobox\\radio_combobox.csproj": {
+    "C:\\Users\\Patryksg05\\OneDrive\\Pulpit\\12_10_2023_WPF\\radio_combobox\\radio_combobox\\radio_combobox.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Patryksg05\\Desktop\\12_10_WPF\\radio_combobox\\radio_combobox\\radio_combobox.csproj",
+        "projectUniqueName": "C:\\Users\\Patryksg05\\OneDrive\\Pulpit\\12_10_2023_WPF\\radio_combobox\\radio_combobox\\radio_combobox.csproj",
         "projectName": "radio_combobox",
-        "projectPath": "C:\\Users\\Patryksg05\\Desktop\\12_10_WPF\\radio_combobox\\radio_combobox\\radio_combobox.csproj",
+        "projectPath": "C:\\Users\\Patryksg05\\OneDrive\\Pulpit\\12_10_2023_WPF\\radio_combobox\\radio_combobox\\radio_combobox.csproj",
         "packagesPath": "C:\\Users\\Patryksg05\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Patryksg05\\Desktop\\12_10_WPF\\radio_combobox\\radio_combobox\\obj\\",
+        "outputPath": "C:\\Users\\Patryksg05\\OneDrive\\Pulpit\\12_10_2023_WPF\\radio_combobox\\radio_combobox\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Patryksg05\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
