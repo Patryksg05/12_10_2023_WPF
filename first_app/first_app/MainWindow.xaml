@@ -104,49 +104,77 @@
 
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="1">
+        <StackPanel
+            Grid.Row="1">
 
-            <TextBlock 
-                Text="Select a gender:"
+            <TextBlock
+                Text="Select a radio button: "
                 FontWeight="Bold"
-                Margin="10 5 0 0"/>
+                Margin="10 0 0 0" />
 
-            <StackPanel Orientation="Horizontal">
-
-                <StackPanel Orientation="Vertical" Margin="10 0 0 0">
-
-                    <RadioButton
-                        x:Name="male"
-                        Content="Male"
-                        GroupName="radio_buttons"
-                        Margin="10 5 0 0" />
+                <StackPanel Orientation="Horizontal">
+                
+                    <StackPanel
+                        x:Name="radio_group_stack_panel"
+                        Orientation="Vertical"
+                        Margin="10 5 0 0">
 
                     <RadioButton
-                        x:Name="female"
-                        Content="Female"
-                        GroupName="radio_buttons"
-                        IsChecked="True"
-                        Margin="10 5 0 0" />
+                        x:Name="radio_btn1"
+                        GroupName="radio_btns"
+                        Content="option1"
+                        Margin="0 2 0 0"
+                        />
+
+                    <RadioButton
+                        x:Name="radio_btn2"
+                        GroupName="radio_btns"
+                        Content="option2" 
+                        Margin="0 2 0 0"/>
 
                 </StackPanel>
 
-                <Image
-                    x:Name="image_source"
-                    Source="../../../images/female.png"
-                    Width="60"
-                    Margin="10 0 0 0" />
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    
+                    <StackPanel 
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center"        
+                        Margin="15 0 0 0" >
+
+                        <TextBox
+                            x:Name="new_radio_btn_text_box"
+                            Width="100"/>
+
+                        <Button
+                            Click="add_new_radio_btn"
+                            Content="NEW RADIO"
+                        />
+
+                    </StackPanel>
+
+                    <StackPanel 
+                        Orientation="Horizontal"
+                        Margin="15 2 0 0">
+
+                        <TextBlock
+                            x:Name="radio_content_text_block"
+                            Text="Radio content"
+                            TextAlignment="Center"
+                            Width="100" />
+
+                        <Button
+                            Click="select_radio_click"
+                            Content="CONTENT"
+                            Width="70"/>
+
+                    </StackPanel>
+                    
+                </StackPanel>
 
             </StackPanel>
 
-            <Button
-                Click="select_gender_click"
-                Content="SELECT"
-                VerticalAlignment="Center"
-                Width="70"
-                Margin="0 5 20 0" />
-
-        </StackPanel>
-
+        </StackPanel>        
+        
     </Grid>
     
 </Window>

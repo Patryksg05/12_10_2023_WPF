@@ -123,17 +123,44 @@ namespace first_app
                 MessageBox.Show("Fill input!");   
         }
 
-        private void select_gender_click(object sender, RoutedEventArgs e)
+        private void add_new_radio_btn(object sender, RoutedEventArgs e)
         {
-            if(male.IsChecked == true)
+            int index = 2;
+            if(new_radio_btn_text_box.Text != String.Empty)
             {
-                image_source.Source = new BitmapImage(new Uri("../../../images/men_image.png", UriKind.Relative));
-                // textblock.FontWeight = Windows.UI.Text.FontWeights.Bold;
+                RadioButton radio_btn = new RadioButton
+                {
+                    Content = new_radio_btn_text_box.Text,
+                    GroupName = "radio_btns", 
+                };
+                radio_group_stack_panel.Children.Add(radio_btn);
             }
-            if(female.IsChecked == true)
+        }
+
+        private void select_radio_click(object sender, RoutedEventArgs e)
+        {
+            RadioButton selectedRadioBtn = radio_group_stack_panel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
+            if (selectedRadioBtn != null)
             {
-                image_source.Source = new BitmapImage(new Uri("../../../images/female.png", UriKind.Relative));
+                int selectedIndex = radio_group_stack_panel.Children.IndexOf(selectedRadioBtn);
+                string content = selectedRadioBtn.Content.ToString();
+                //MessageBox.Show(selectedIndex.ToString() + " " + content);
+                radio_content_text_block.Text = selectedIndex.ToString() + " " + content;
             }
+            /*MessageBox.Show(radio_group_stack_panel.Children.Count.ToString());
+            foreach(UIElement element in radio_group_stack_panel.Children)
+            {
+                if(element is RadioButton radioBtn)
+                {
+                    if(radioBtn.GroupName == "radio_btns")
+                    {
+                        if(radioBtn.Content.ToString() == "option1")
+                        {
+
+                        }
+                    }
+                }
+            }*/
         }
     }
     
