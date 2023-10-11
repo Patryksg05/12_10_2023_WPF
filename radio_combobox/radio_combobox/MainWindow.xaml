@@ -199,6 +199,51 @@
             </StackPanel>
             
         </StackPanel>
+
+        <StackPanel 
+            Orientation="Vertical"
+            Grid.Column="1"
+            Grid.Row="1">
+
+            <TextBlock
+                Text="Generate A Color For a Text"
+                TextAlignment="Center"
+                FontWeight="bold" />
+
+            <StackPanel
+                x:Name="checkbox_stack_panel"
+                Orientation="Vertical">
+
+                <CheckBox
+                    x:Name="red"
+                    Content="Red"/>
+                
+                <CheckBox
+                    x:Name="green"
+                    Content="Green"/>
+
+                <CheckBox
+                    x:Name="blue"
+                    Content="Blue"/>
+
+                <Button
+                    Click="generate_colour"
+                    Content="GENERATE"
+                    Width="80"
+                    />
+
+            </StackPanel>
+
+            <TextBlock
+                x:Name="color_text_block"
+                Text="RESULT TEXT"
+                Margin="0 10 0 0"
+                TextAlignment="Center"
+                FontSize="15"
+                Background="Black"
+                Foreground="White"/>
+
+        </StackPanel>
  
     </Grid>
 </Window>

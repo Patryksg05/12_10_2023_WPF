@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -112,6 +113,18 @@ namespace radio_combobox
                 MessageBox.Show("Fill input to add!");
         }
 
+        public static SolidColorBrush GetColorFromHexa(string hexaColor)
+        {
+            return new SolidColorBrush(
+                Color.FromArgb(
+                    Convert.ToByte(hexaColor.Substring(1, 2), 16),
+                    Convert.ToByte(hexaColor.Substring(3, 2), 16),
+                    Convert.ToByte(hexaColor.Substring(5, 2), 16),
+                    Convert.ToByte(hexaColor.Substring(7, 2), 16)
+                )
+            );
+        }
+
         private void display_club_click(object sender, RoutedEventArgs e)
         {
             RadioButton radioButton = radio_images_stack_panel.Children.OfType<RadioButton>().FirstOrDefault(r=>r.IsChecked == true);
@@ -122,6 +135,33 @@ namespace radio_combobox
                 Club club = clubs[selected_index];
                 image.Source = new BitmapImage(new Uri(club.getImage(), UriKind.Relative));
             }
+        }
+
+        private void generate_colour(object sender, RoutedEventArgs e)
+        {
+            /*foreach (var item in checkbox_stack_panel.Children)
+            {
+                if(item is CheckBox checkBox)
+                {
+                    bool isChecked = checkBox.IsChecked == true;
+                    string content = checkBox.Content.ToString();
+                    MessageBox.Show(content);
+                }
+            }*/
+
+            var list = new List<string>();
+            list.Add("#");
+            foreach(CheckBox check in checkbox_stack_panel.Children.OfType<CheckBox>())
+            {
+                if (check.IsChecked == true)
+                    list.Add("FF");
+                else
+                    list.Add("00");
+            }
+            string result = String.Join("", list.ToArray());
+            MessageBox.Show(result);
+            Color color = (Color)ColorConverter.ConvertFromString(result);
+            color_text_block.Foreground= new SolidColorBrush(color);
         }
     }
 
