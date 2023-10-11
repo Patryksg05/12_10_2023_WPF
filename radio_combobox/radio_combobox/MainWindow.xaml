@@ -129,6 +129,76 @@
             </StackPanel>
             
         </StackPanel>
-        
+
+        <StackPanel
+            Grid.Column="1"
+            Orientation="Vertical">
+
+            <TextBlock
+                Text="Select a club to display a logo: "
+                FontWeight="Bold"
+                Margin="10 2 0 0"
+                />
+
+
+            <StackPanel 
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="0 10 0 10"    
+                >
+
+                <TextBox
+                    x:Name="new_radio_club_text_box"
+                    Width="130"/>
+
+                <Button
+                        Click="add_new_club_click"
+                        Content="ADD"
+                        Width="50"
+                        />
+
+                <Button
+                        Click="display_club_click"
+                        Content="SHOW"
+                        Width="50"
+                        />
+
+            </StackPanel>
+
+
+            <StackPanel 
+                Orientation="Horizontal">
+                
+                <StackPanel
+                    x:Name="radio_images_stack_panel"
+                    Orientation="Vertical"
+                    Margin="5 5 0 0">
+
+                    <RadioButton
+                        x:Name="bvb_radio"
+                        GroupName="radio_clubs"
+                        Content="BVB"
+                        IsChecked="True"
+                        />
+
+                    <RadioButton
+                        x:Name="bayern_radio"
+                        GroupName="radio_clubs"
+                        Content="BAYERN"
+                        />
+
+                </StackPanel>
+
+                <Image
+                    x:Name="image"
+                    Source="../../../images/defualt.png"
+                    HorizontalAlignment="Right"
+                    Width="30"
+                    Margin="0 5 -50 0"/>
+
+            </StackPanel>
+            
+        </StackPanel>
+ 
     </Grid>
 </Window>

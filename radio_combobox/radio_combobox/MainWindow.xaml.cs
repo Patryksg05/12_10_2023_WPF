@@ -24,6 +24,8 @@ namespace radio_combobox
         public ObservableCollection<ComboBoxItem> comboBoxItems { get; set; }
         public ComboBoxItem selectedComboBoxItem { get; set; }
 
+        List<Club> clubs = new List<Club>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -38,6 +40,11 @@ namespace radio_combobox
             comboBoxItems.Add(new ComboBoxItem { Content = "Option2" });
             comboBoxItems.Add(new ComboBoxItem { Content = "Option3" });
             comboBoxItems.Add(new ComboBoxItem { Content = "Option4" });
+
+            clubs.Add(new Club("BVB", "../../../images/bvb.png"));
+            clubs.Add(new Club("BAYERN", "../../../images/bayern.png"));
+
+            image.Source = new BitmapImage(new Uri("../../../images/bvb.png", UriKind.Relative));
         }
 
         private void add_new_cb_item_click(object sender, RoutedEventArgs e)
@@ -71,7 +78,7 @@ namespace radio_combobox
                 RadioButton radioButton = new RadioButton
                 {
                     Content = new_radiobox_text_box.Text,
-                    GroupName = "radio_btns"
+                    GroupName = "radio_btns"    
                 };
                 radio_buttons_stack_panel.Children.Add(radioButton);
             }
@@ -87,6 +94,59 @@ namespace radio_combobox
                 selected_radio_btn_value_text_block.Text = index.ToString() + " " + content;
                 selected_radio_btn_value_text_block.Visibility = Visibility.Visible;
             }
+        }
+
+        private void add_new_club_click(object sender, RoutedEventArgs e)
+        {
+            if (new_radio_club_text_box.Text != String.Empty)
+            {
+                RadioButton radioButton = new RadioButton
+                {
+                    Content = new_radio_club_text_box.Text,
+                    GroupName = "radio_clubs"
+                };
+                radio_images_stack_panel.Children.Add(radioButton);
+                clubs.Add(new Club(new_radio_club_text_box.Text, "../../../images/defualt.png"));
+            }
+            else
+                MessageBox.Show("Fill input to add!");
+        }
+
+        private void display_club_click(object sender, RoutedEventArgs e)
+        {
+            RadioButton radioButton = radio_images_stack_panel.Children.OfType<RadioButton>().FirstOrDefault(r=>r.IsChecked == true);
+            if(radioButton != null)
+            {
+                int selected_index = radio_images_stack_panel.Children.IndexOf(radioButton);
+
+                Club club = clubs[selected_index];
+                image.Source = new BitmapImage(new Uri(club.getImage(), UriKind.Relative));
+            }
+        }
+    }
+
+    class Club
+    {
+        private string Name { get; set;  }
+        private string image { get; set; }
+        public Club(string n, string i) {
+            this.Name = n;
+            this.image = i;
+        }
+
+        public string getName()
+        {
+            return this.Name;
+        }
+        public string getImage()
+        {
+            return this.image;
+        }
+
+        public Club(string n)
+        {
+            this.Name = n;
+            this.image = "../../../images/defualt.png";
         }
     }
 }
