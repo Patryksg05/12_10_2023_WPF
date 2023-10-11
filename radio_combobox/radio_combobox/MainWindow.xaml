@@ -1,0 +1,73 @@
+﻿<Window x:Class="radio_combobox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:radio_combobox"
+        mc:Ignorable="d"
+        Title="Radio - Combobox" Height="350" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <!--COMBOBOX-->
+            <StackPanel Orientation="Vertical" Margin="10 5 0 0">
+
+                <StackPanel 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+                    <TextBox
+                        x:Name="new_combobox_item_text_box"
+                        Width="130"/>
+
+                    <Button
+                        Click="add_new_cb_item_click"
+                        Content="ADD"
+                        Width="50"
+                        />
+
+                    <Button
+                        Click="display_cb_item_click"
+                        Content="DISPLAY"
+                        Width="50"
+                        />
+
+                </StackPanel>
+
+                <StackPanel 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+                    
+                    <ComboBox
+                        x:Name="combo_box"
+                        Width="80"
+                        Margin="0 10 20 10"
+                        HorizontalAlignment="Center"
+                        ItemsSource="{Binding comboBoxItems}"
+                        SelectedItem="{Binding selectedComboBoxItem}"
+                    />
+
+                    <TextBlock
+                        x:Name="selected_cb_item_text_block"
+                        Text="Selected value"
+                        VerticalAlignment="Center"
+                        FontWeight="Bold"
+                        />
+
+                </StackPanel>
+
+                
+
+            </StackPanel>
+        </StackPanel>
+        
+    </Grid>
+</Window>
